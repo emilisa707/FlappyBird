@@ -34,6 +34,20 @@ public class Bird : MonoBehaviour
         }
     }
 
+    void Jump()
+    {
+        if (rigidbody2d)
+        {
+            rigidbody2d.velocity = Vector2.zero;
+            rigidbody2d.AddForce(new Vector2(0, upForce));
+        }
+
+        if (OnJump != null)
+        {
+            OnJump.Invoke();
+        }
+    }
+
     public bool IsDead()
     {
         return isDead;
@@ -47,20 +61,6 @@ public class Bird : MonoBehaviour
         }
 
         isDead = true;
-    }
-
-    void Jump()
-    {
-       if(rigidbody2d)
-        {
-            rigidbody2d.velocity = Vector2.zero;
-            rigidbody2d.AddForce(new Vector2(0, upForce));
-        }
-
-       if(OnJump != null)
-        {
-            OnJump.Invoke();
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

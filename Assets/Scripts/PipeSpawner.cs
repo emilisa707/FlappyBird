@@ -40,6 +40,7 @@ public class PipeSpawner : MonoBehaviour
         spawnInterval = Random.Range(2, 4);
 
         float y = maxMinOffset * Mathf.Sin(Time.time);
+        Debug.Log(y);
 
 
         Pipe newPipeUp = Instantiate(pipeUp, transform.position, Quaternion.Euler(0, 0, 180));
